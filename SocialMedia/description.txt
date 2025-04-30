@@ -1,0 +1,107 @@
+Problem Statement:
+
+Design a simple social media network system that allows users to follow friends, upload posts, delete posts, and browse a post feed.
+
+The system should support the following functionalities:
+
+Upload Post: A user should be able to upload a post. Each post should have the following attributes:
+
+postId: A unique identifier for the post.
+
+userId: The ID of the user who created the post.
+
+content: The content of the post (a string).
+
+timestamp: The time when the post was created (as an integer or string in the format 'YYYY-MM-DD HH:MM:SS').
+
+Delete Post: A user should be able to delete a post they created, identified by the postId.
+
+Browse Post Feed: A user should be able to browse a feed of the 10 most recent posts, consisting of posts from the user’s own account and users they follow, sorted by timestamp. The feed should include:
+
+Posts from the user themselves.
+
+Posts from users the user is following.
+
+The feed should return the most recent 10 posts.
+
+Follow User: A user should be able to follow another user. When a user follows another user, they should start seeing their posts in their feed.
+
+Unfollow User: A user should be able to unfollow another user. When a user unfollows another user, their posts should no longer appear in their feed.
+
+Class and Method Design:
+
+Design the following classes and methods:
+
+User Class:
+
+Attributes:
+
+userId: A unique identifier for the user.
+
+followings: A set of user IDs representing the users the current user follows.
+
+posts: A list of posts created by the user.
+
+Methods:
+
+follow(user: User): Follow a user.
+
+unfollow(user: User): Unfollow a user.
+
+Post Class:
+
+Attributes:
+
+postId: A unique identifier for the post.
+
+userId: The user who posted the content.
+
+content: The content of the post.
+
+timestamp: The timestamp of when the post was created.
+
+Methods:
+
+edit(content: str): Edit the content of the post (optional).
+
+delete(): Delete the post (optional).
+
+Feed Class:
+
+Attributes:
+
+posts: A list of all posts in the system.
+
+Methods:
+
+browse_feed(user: User): Return the 10 most recent posts from the user's posts and the posts of the users they follow, sorted by the timestamp.
+
+SocialMediaNetwork Class:
+
+Attributes:
+
+users: A map of user IDs to User objects.
+
+posts: A list of all posts created by all users.
+
+Methods:
+
+create_user(userId: str): Create a new user.
+
+create_post(userId: str, content: str): Create a new post for the given user.
+
+delete_post(userId: str, postId: str): Delete a post by the given user.
+
+follow_user(followerId: str, followeeId: str): Allow a user to follow another user.
+
+unfollow_user(followerId: str, followeeId: str): Allow a user to unfollow another user.
+
+get_feed(userId: str): Get the feed for a given user.
+
+Input:
+
+A sequence of operations that simulate user actions in the system, such as creating users, creating posts, following/unfollowing users, and browsing feeds.
+
+Output:
+
+Return outputs based on the user operations, like success or failure messages, or the 10 most recent posts in the feed.
